@@ -13,7 +13,7 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
-    path("", include("wagtail.urls")),
+    path("", include("wagtail.urls")),  # Includes wagtail URls
 ]
 
 
