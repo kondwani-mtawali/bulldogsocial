@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<h1>{{ page.title |richtext }}</h1>
+{% if page.image %}
+<img src="{{ page.image }}" alt="{{ page.title }}" style="max-width: 400px;">
+{% endif %}
+<div>{{ page.description|richtext }}</div>
+<a href="#" style="color: #2C3E50;">Join Space</a>
+<br>
+<a href="{% pageurl page.get_parent %}">Back</a>
+{% endblock %}

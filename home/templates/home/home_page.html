@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<div class="intro-text">
+    For CUNE Students by CUNE Students
+</div>
+
+<div class="links-container">
+    <a href="{% pageurl for_you_page %}" class="graphic-link">
+        <div class="graphic-label">For You Page</div>
+        <img src="/static/images/foryou.jpg" alt="For You Page Graphic">
+    </a>
+    <a href="{% pageurl following_page %}" class="graphic-link">
+        <div class="graphic-label">Following Page</div>
+        <img src="/static/images/following.jpg" alt="Following Page Graphic">
+    </a>
+</div>
+{% endblock %}

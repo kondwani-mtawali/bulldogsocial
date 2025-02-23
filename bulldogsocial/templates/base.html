@@ -1,0 +1,196 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Bulldog Social{% endblock %}</title>
+    <!-- Google Fonts for more exciting text -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            /* Add a subtle background gradient for extra color */
+            background: linear-gradient(135deg, #f0f4f8, #ffffff);
+            color: #2C3E50;
+        }
+
+        /* Top Panel */
+        .top-panel {
+            background-color: #2C3E50;
+            color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Center the title in the top panel */
+            position: relative;
+        }
+
+        .top-panel .title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top-panel .title img {
+            height: 40px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .top-panel .title h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .top-panel .profile {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+        }
+
+        .top-panel .profile img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background-color: #34495E;
+            padding: 20px;
+            min-width: 200px;
+            color: #ffffff;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            height: calc(100vh - 60px);
+        }
+
+        .sidebar a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+            padding: 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            background-color: #3d566e;
+        }
+
+        /* Main Content Area */
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        /* Home Page Specific Styling */
+        .intro-text {
+            text-align: center;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* Graphic Links for Home Page */
+        .links-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .graphic-link {
+            text-align: center;
+            margin: 10px;
+            text-decoration: none;
+            color: #2C3E50;
+            border: 2px solid #2C3E50;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 60%;
+            max-width: 600px;
+            transition: transform 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .graphic-link:hover {
+            transform: scale(1.03);
+        }
+
+        .graphic-link img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 2px solid #2C3E50;
+        }
+
+        .graphic-label {
+            background-color: #2C3E50;
+            color: #ffffff;
+            padding: 10px;
+            font-size: 1.3em;
+        }
+
+        /* Custom text style classes */
+        .exciting-text {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 3em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Panel -->
+    <div class="top-panel">
+        <div class="title">
+            <!-- Use your own logo from the static folder -->
+            <img src="{% static 'images/my_bulldog_logo.png' %}" alt="Bulldog Logo">
+            <h1 class="exciting-text">Bulldog Social</h1>
+        </div>
+        <div class="profile">
+            <!-- Default profile image -->
+            <a href="#">
+                <img src="{% static 'images/bulldog.jpg' %}" alt="Profile">
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <!-- Home Icon -->
+            <a href="/"><img src="{% static 'images/home.png' %}" alt="Home"
+                    style="width:40px; height:40px; margin-bottom:10px;"></a>
+            <a href="#">Your Profile</a>
+            <a href="#">Student Feed</a>
+            <a href="#">Student Marketplace</a>
+            <a href="#">Friends</a>
+            <a href="#">Saved</a>
+            <a href="#">Settings &amp; Privacy</a>
+            <a href="#">Help &amp; Support</a>
+        </div>
+        <!-- Main Content Area -->
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

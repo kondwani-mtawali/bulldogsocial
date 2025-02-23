@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<h1>Spaces You Follow</h1>
+<p>You currently aren't apart of any spaces.</p>
+<a href="{% pageurl page.get_parent %}">Back to Home</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<h1 class="exciting-text">{{ page.title }}</h1>
+<div>{{ page.intro|richtext }}</div>
+
+<h2 class="exciting-text">Recommended Spaces</h2>
+{% for child in page.get_children.live %}
+{% with space=child.specific %}
+<div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
+    <h3 class="exciting-text">
+        <a href="{% pageurl space %}">{{ space.title }}</a>
+    </h3>
+    {% if space.image %}
+    <img src="{{ space.image.url }}" alt="{{ space.title }}" style="width:100%; margin-bottom:10px;">
+    {% endif %}
+    <p>{{ space.description|truncatewords:20 }}</p>
+    <a href="#" style="color: #2C3E50;">Join Space!</a>
+</div>
+{% endwith %}
+{% empty %}
+<p>No spaces available.</p>
+{% endfor %}
+<a href="{% pageurl page.get_parent %}">Back to Home</a>
+{% endblock %}
